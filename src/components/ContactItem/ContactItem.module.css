@@ -1,0 +1,31 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 80%;
+}
+  
+.name {
+  color: rgb(39, 39, 39);
+  font-size: 16px;
+  text-transform: capitalize;
+}
+
+.number {
+  font-size: 16px;
+  color: #7b5454;
+}
+
+.button {
+  width: 70px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  background-color: #7b5454;
+  color: white;
+}
+
+.button:hover,
+.button:focus {
+  filter: brightness(70%);
+}

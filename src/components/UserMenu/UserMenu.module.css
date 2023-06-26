@@ -1,0 +1,25 @@
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.welcome {
+  margin-bottom: 0;
+  color: #7b5454;
+}
+
+.name {
+  font-weight: 700;
+  color: #653434;
+}
+
+.button {
+  width: 70px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  background-color: #7b5454;
+  color: white;
+}
