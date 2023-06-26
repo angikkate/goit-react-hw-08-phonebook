@@ -2,8 +2,10 @@
   display: flex;
   gap: 20px;
   align-items: center;
+  margin-top: 10px;
 }
 
-a:hover, a:active {
+.link:hover, 
+.link:active {
   color: tomato;
 }
