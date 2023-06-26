@@ -42,14 +42,18 @@ export const logIn = createAsyncThunk(
   }
 );
 
-export const logout = createAsyncThunk('auth/logout', async () => {
-  try {
-    const { data } = await axios.post('/users/logout');
+export const logout = createAsyncThunk(
+  'auth/logout', 
+  async (credentials, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post('/users/logout', credentials);
 
-    token.unset();
+      token.unset();
 
-    return data;
-  } catch (error) {}
+      return data;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
 });
 
 export const fetchCurrentUser = createAsyncThunk(
@@ -67,6 +71,8 @@ export const fetchCurrentUser = createAsyncThunk(
     try {
       const { data } = await axios.get('/users/current');
       return data;
-    } catch (error) {}
+    } catch (error) {
+      return rejectWithValue(error);
+    }
   }
 );

@@ -1,4 +1,4 @@
-import { Formik, ErrorMessage } from 'formik';
+import { Formik, ErrorMessage, Form, Field } from 'formik';
 import { object, string, number } from 'yup';
 
 import {
@@ -25,7 +25,7 @@ export const ContactForm = () => {
   const contacts = useSelector(selectContacts);
   const isLoading = useSelector(selectIsContactAdded);
   const dispatch = useDispatch();
-  console.log(contacts);
+
   const onFormSubmit = (values, { resetForm }) => {
     const loweredName = values.name.toLowerCase();
     
@@ -47,10 +47,10 @@ export const ContactForm = () => {
         validationSchema={schema}
         onSubmit={onFormSubmit}
       >
-        <form className={css.form}>
+        <Form className={css.form}>
           <label className={css.label}>
             <span className={css.span}>Name</span>
-            <input
+            <Field
               className={css.input}
               type="text"
               name="name"
@@ -62,7 +62,7 @@ export const ContactForm = () => {
           </label>
           <label className={css.label}>
             <span className={css.span}>Number</span>
-            <input className={css.input}
+            <Field className={css.input}
               type="tel"
               name="number"
               pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -87,7 +87,7 @@ export const ContactForm = () => {
               />
             )}
           </button>
-        </form>
+        </Form>
       </Formik>
     </>
   );

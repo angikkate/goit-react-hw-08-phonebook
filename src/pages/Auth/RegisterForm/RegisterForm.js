@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectError } from 'redux/auth/auth-selectors';
 import { register } from 'redux/auth/auth-operations';
 
-import { Formik, ErrorMessage } from 'formik';
+import { Formik, ErrorMessage, Form, Field } from 'formik';
 import { object, string } from 'yup';
 
 import { toast } from 'react-toastify';
@@ -39,24 +39,24 @@ const RegisterForm = () => {
       validationSchema={schema}
       onSubmit={onFormSubmit}
     >
-      <form className={css.form}>
+      <Form className={css.form}>
         <label className={css.label}>
           Name
-          <input className={css.input} type="text" name="name" required />
+          <Field className={css.input} type="text" name="name" required />
           <ErrorMessage name="name" component="div" />
         </label>
         <label className={css.label}>
           Email
-          <input className={css.input} type="email" name="email" required />
+          <Field className={css.input} type="email" name="email" required />
           <ErrorMessage name="email" component="div" />
         </label>
         <label className={css.label}>
           Password
-          <input className={css.input} type="password" name="password" required />
+          <Field className={css.input} type="password" name="password" required />
           <ErrorMessage name="password" component="div" />
         </label>
         <button className={css.button} type="submit">Register</button>
-      </form>
+      </Form>
     </Formik>
   );
 };
